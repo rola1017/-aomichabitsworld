@@ -119,7 +119,12 @@ async function fetchWordPressPosts(): Promise<WpPost[]> {
   try {
     const response = await fetch(WP_GRAPHQL_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+      },
+      cache: 'no-store',
       body: JSON.stringify({ query }),
     });
 
