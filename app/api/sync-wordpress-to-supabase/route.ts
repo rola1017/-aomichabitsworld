@@ -85,6 +85,56 @@ type WpPost = {
   seo?: { metaDesc?: string | null } | null;
 };
 
+async function fetchSingleWordPressPost(wpId: number): Promise<WpPost | null> {
+  const query = `
+    query GetSinglePost($id: ID!) {
+      post(id: $id, idType: DATABASE_ID) {
+        id
+        databaseId
+        title
+        slug
+        content
+        excerpt
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        categories(first: 5) {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  try {
+    const response = await fetch(WP_GRAPHQL_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache',
+      },
+      cache: 'no-store',
+      body: JSON.stringify({
+        query,
+        variables: { id: String(wpId) },
+      }),
+    });
+
+    if (!response.ok) return null;
+    const data = await response.json();
+    return data?.data?.post ?? null;
+  } catch (error) {
+    console.error('Failed to fetch single WordPress post:', error);
+    return null;
+  }
+}
+
 // 從 WordPress 抓文章
 async function fetchWordPressPosts(): Promise<WpPost[]> {
   const query = `
@@ -175,6 +225,22 @@ export async function POST(request: NextRequest) {
     const body = await request.json().catch(() => ({}));
     if (body.secret !== process.env.SYNC_SECRET_KEY) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    // 如果有指定 wp_id，只同步單篇
+    if (body.wpId) {
+      const wpPost = await fetchSingleWordPressPost(Number(body.wpId));
+      if (!wpPost) {
+        return NextResponse.json({ error: 'Post not found' }, { status: 404 });
+      }
+      const post = transformPost(wpPost);
+      const { error } = await supabase
+        .from('articles')
+        .upsert(post, { onConflict: 'wp_id' });
+      if (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 });
+      }
+      return NextResponse.json({ message: 'Single post synced', title: post.title });
     }
 
     // 抓 WordPress 文章
