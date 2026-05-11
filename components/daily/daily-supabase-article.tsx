@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { DailySubcategoryBar } from "@/components/daily/daily-subcategory-bar"
 import { getSiteOrigin } from "@/lib/site-url"
 import { stripHtml } from "@/lib/strip-html"
-import { getPostByWpId } from "@/lib/supabase-posts"
+import { getPostByWpId, getPostBySlug } from "@/lib/supabase-posts"
 
 function absolutizeOgImage(
   url: string | undefined | null,
@@ -61,10 +61,11 @@ type DailySupabaseArticleProps = {
 }
 
 export async function DailySupabaseArticle({ rawSlug }: DailySupabaseArticleProps) {
-  const wpId = Number(decodeURIComponent(rawSlug))
-  if (!Number.isFinite(wpId)) notFound()
-
-  const post = await getPostByWpId(wpId)
+  const decoded = decodeURIComponent(rawSlug)
+  const wpId = Number(decoded)
+  const post = Number.isFinite(wpId) && wpId > 0
+    ? await getPostByWpId(wpId)
+    : await getPostBySlug(decoded)
   if (!post) notFound()
 
   return (
