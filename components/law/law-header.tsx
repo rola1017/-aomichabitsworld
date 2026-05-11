@@ -330,7 +330,6 @@ export function LawHeader() {
   const isInsuranceLaw = pathname === "/law/insurance" || pathname.startsWith("/law/insurance/")
   const isCivilLaw = pathname === "/law/civil" || pathname.startsWith("/law/civil/")
   const isFamilyTrustAndAssetProtection =
-    pathname === "/law/civil/family-and-inheritance/family-trust-and-asset-protection" ||
     pathname.startsWith(
       "/law/civil/family-and-inheritance/family-trust-and-asset-protection/"
     )
