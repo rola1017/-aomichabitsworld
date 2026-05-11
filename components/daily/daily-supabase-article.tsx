@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 
 import { DailySubcategoryBar } from "@/components/daily/daily-subcategory-bar"
+import { ARTICLE_CONTENT_CLASSNAME } from "@/lib/article-content-styles"
 import { getSiteOrigin } from "@/lib/site-url"
 import { stripHtml } from "@/lib/strip-html"
 import { getPostByWpId, getPostBySlug } from "@/lib/supabase-posts"
@@ -75,7 +76,7 @@ export async function DailySupabaseArticle({ rawSlug }: DailySupabaseArticleProp
       <div className="rounded-2xl border border-[#D1C7B7] bg-white/80 p-6 shadow-md sm:p-8">
         <h1 className="mb-3 text-2xl font-bold text-[#1A2744]">{post.title}</h1>
         <div
-          className="max-w-none leading-relaxed text-[#334155] [&_h2]:mt-6 [&_h3]:mt-4 [&_p]:mb-4"
+          className={ARTICLE_CONTENT_CLASSNAME}
           dangerouslySetInnerHTML={{ __html: post.content ?? "" }}
         />
       </div>

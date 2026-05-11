@@ -9,6 +9,7 @@ import { LaborPopularPostsPanel } from "@/components/law/labor-popular-posts-pan
 import { LawSearchBox } from "@/components/law/law-search-box"
 import { LawArticleLegalDisclaimer } from "@/components/law/law-article-legal-disclaimer"
 import { LawCertSection } from "@/components/law/law-cert-section"
+import { ARTICLE_CONTENT_CLASSNAME } from "@/lib/article-content-styles"
 import { buildLawArticleBreadcrumb } from "@/lib/labor-wp-breadcrumb"
 import { getSiteOrigin } from "@/lib/site-url"
 import { stripHtml } from "@/lib/strip-html"
@@ -130,6 +131,7 @@ export async function LawInsuranceWpArticle({
               </div>
             )}
             <div
+              className={ARTICLE_CONTENT_CLASSNAME}
               dangerouslySetInnerHTML={{ __html: post.content ?? "" }}
             />
             <LawArticleLegalDisclaimer />
