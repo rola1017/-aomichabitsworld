@@ -7,6 +7,15 @@ import { useCallback, useEffect, useState } from "react"
 
 import { MenuTreeDropdown } from "@/components/ui/menu-tree-dropdown"
 
+type MenuNode = { label: string; href: string; children?: MenuNode[] }
+type NavItem = {
+  name: string
+  href: string
+  baseColor: string
+  accentColor: string
+  menuTree?: MenuNode[]
+}
+
 const mainNavItems = [
   { name: "勞動社會法", href: "/law/labor", baseColor: "#E8EEF0", accentColor: "#D5E0E8" },
   { name: "保險法", href: "/law/insurance", baseColor: "#F5F0E8", accentColor: "#E8E0D5" },
@@ -96,6 +105,12 @@ const familyAndInheritanceNavItems = [
     href: "/law/civil/family-and-inheritance/family-trust-and-asset-protection",
     baseColor: "#E8EEF0",
     accentColor: "#D5E0E8",
+    menuTree: [
+      { label: "遺囑信託與身後傳承", href: "/law/civil/family-and-inheritance/family-trust-and-asset-protection/testamentary-trusts-and-succession" },
+      { label: "子女保障與教育信託", href: "/law/civil/family-and-inheritance/family-trust-and-asset-protection/child-protection-and-education-trusts" },
+      { label: "安養信託與意定監護", href: "/law/civil/family-and-inheritance/family-trust-and-asset-protection/retirement-trusts-and-guardianship" },
+      { label: "企業傳承與股權信託", href: "/law/civil/family-and-inheritance/family-trust-and-asset-protection/corporate-succession-and-equity-trusts" },
+    ],
   },
   {
     name: "婚姻契約與財產制",
@@ -662,6 +677,26 @@ export function LawHeader() {
                         key={item.name}
                         nodes={lifeInsuranceSubMenuTree as any}
                         contentClassName="min-w-[14rem]"
+                        openOnHover
+                        trigger={
+                          <Link href={item.href} className={pillClass} style={pillStyle}>
+                            {marbleOverlay}
+                            <span className="relative z-10 text-sm lg:text-base font-medium text-[#1A2744] font-serif">
+                              {item.name}
+                            </span>
+                          </Link>
+                        }
+                      />
+                    )
+                  }
+
+                  // 通用：如果 navItem 本身帶有 menuTree，就顯示下拉（適用所有層級）
+                  if ((item as NavItem).menuTree && (item as NavItem).menuTree!.length > 0) {
+                    return (
+                      <MenuTreeDropdown
+                        key={item.name}
+                        nodes={(item as NavItem).menuTree! as any}
+                        contentClassName="min-w-[18rem]"
                         openOnHover
                         trigger={
                           <Link href={item.href} className={pillClass} style={pillStyle}>
