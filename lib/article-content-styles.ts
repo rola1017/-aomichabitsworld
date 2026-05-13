@@ -8,6 +8,8 @@ export const ARTICLE_CONTENT_CLASSNAME =
   "[&_h1]:text-2xl [&_h1]:font-bold [&_h1]:mt-8 [&_h1]:mb-3 [&_h1]:text-[#1A2744] " +
   "[&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mt-6 [&_h2]:mb-2 [&_h2]:text-[#1A2744] " +
   "[&_h3]:text-lg [&_h3]:font-medium [&_h3]:mt-4 [&_h3]:mb-1 [&_h3]:text-[#1A2744] " +
+  "[&_h4]:text-base [&_h4]:font-semibold [&_h4]:mt-3 [&_h4]:mb-1 [&_h4]:text-[#334155] " +
+  "[&_h5]:text-sm [&_h5]:font-semibold [&_h5]:mt-2 [&_h5]:mb-1 [&_h5]:text-[#334155] " +
   "[&_p]:mb-4 " +
   "[&_ul]:list-disc [&_ul]:pl-5 [&_ul]:mb-4 " +
   "[&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:mb-4 " +
