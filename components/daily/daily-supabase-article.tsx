@@ -21,14 +21,16 @@ export async function generateDailySupabaseArticleMetadata(
   dailySubPath: string,
   rawSlug: string
 ): Promise<Metadata> {
-  const wpId = Number(decodeURIComponent(rawSlug))
-  if (!Number.isFinite(wpId)) return { title: "文章" }
-
-  const post = await getPostByWpId(wpId)
+  const decoded = decodeURIComponent(rawSlug)
+  const wpId = Number(decoded)
+  const post =
+    Number.isFinite(wpId) && wpId > 0
+      ? await getPostByWpId(wpId)
+      : await getPostBySlug(decoded)
   if (!post) return { title: "文章" }
 
   const siteOrigin = await getSiteOrigin()
-  const canonical = `${siteOrigin}/daily/${dailySubPath}/${encodeURIComponent(String(wpId))}`
+  const canonical = `${siteOrigin}/daily/${dailySubPath}/${encodeURIComponent(decoded)}`
   const rawDesc = stripHtml(
     (post.excerpt?.trim() ? post.excerpt : null) ?? post.content ?? ""
   )
