@@ -15,6 +15,7 @@ export type Article = {
   meta_description: string;
   structured_qa: unknown | null;
   direct_answer: unknown | null;
+  updated_at?: string | null;
 };
 
 /** 依子分類抓文章列表 */

@@ -54,7 +54,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       if (!url) return null
       return {
         url,
-        lastModified: now,
+        lastModified: p.updated_at ? new Date(p.updated_at) : now,
         changeFrequency: "weekly" as const,
         priority: 0.6,
       }
