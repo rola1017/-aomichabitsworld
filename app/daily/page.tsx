@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 
-import { DailyWpCategoryPostList } from "@/components/daily/daily-wp-category-post-list"
+import { DailySupabaseCategoryPostList } from "@/components/daily/daily-supabase-category-post-list"
 import { DailySubcategoryBar } from "@/components/daily/daily-subcategory-bar"
 
 export const metadata: Metadata = {
@@ -29,45 +29,45 @@ export default function DailyPage() {
 
       <section>
         <h2 className="text-xl font-bold text-[#101A3A] mb-4 text-center">讀書</h2>
-        <DailyWpCategoryPostList
-          siteCategoryPath="study"
-          wpCategorySlug="study"
+        <DailySupabaseCategoryPostList
+          categorySub="study"
+          listBase="/daily/study"
           emptyLabel="目前尚無「讀書」文章，請稍後再試。"
         />
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-[#101A3A] mb-4 text-center">考試</h2>
-        <DailyWpCategoryPostList
-          siteCategoryPath="exam"
-          wpCategorySlug="exam"
+        <DailySupabaseCategoryPostList
+          categorySub="exam"
+          listBase="/daily/exam"
           emptyLabel="目前尚無「考試」文章，請稍後再試。"
         />
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-[#101A3A] mb-4 text-center">隨筆</h2>
-        <DailyWpCategoryPostList
-          siteCategoryPath="essay"
-          wpCategorySlug="essay"
+        <DailySupabaseCategoryPostList
+          categorySub="essay"
+          listBase="/daily/essay"
           emptyLabel="目前尚無「隨筆」文章，請稍後再試。"
         />
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-[#101A3A] mb-4 text-center">生活智慧王</h2>
-        <DailyWpCategoryPostList
-          siteCategoryPath="life-wisdom"
-          wpCategorySlug="life-wisdom"
+        <DailySupabaseCategoryPostList
+          categorySub="life-wisdom"
+          listBase="/daily/life-wisdom"
           emptyLabel="目前尚無「生活智慧王」文章，請稍後再試。"
         />
       </section>
 
       <section>
         <h2 className="text-xl font-bold text-[#101A3A] mb-4 text-center">左手訓練</h2>
-        <DailyWpCategoryPostList
-          siteCategoryPath="left-hand-writing"
-          wpCategorySlug="left-hand-writing"
+        <DailySupabaseCategoryPostList
+          categorySub="left-hand-writing"
+          listBase="/daily/left-hand-writing"
           emptyLabel="目前尚無「左手訓練」文章，請稍後再試。"
         />
       </section>
