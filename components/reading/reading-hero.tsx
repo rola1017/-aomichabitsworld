@@ -29,7 +29,7 @@ export function ReadingHero() {
           </span>
           {q.chinesesuffix}
         </p>
-        <p className={`${corinthia.className} text-2xl text-[#c4bcb0]`}>{q.english}</p>
+        <p className={`${corinthia.className} text-4xl md:text-5xl text-[#c4bcb0]`}>{q.english}</p>
       </div>
     </section>
   )
