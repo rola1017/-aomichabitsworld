@@ -1,7 +1,5 @@
 import type { Metadata } from "next"
-import Link from "next/link"
 import { ReadingLayout } from "@/components/reading/reading-layout"
-import { READING_SUBCATEGORIES } from "@/config/reading-config"
 
 export const metadata: Metadata = {
   title: "閱讀｜AtomicHabitsWorld 每天一點點",
@@ -26,18 +24,6 @@ export default function ReadingPage() {
           威克家：「讀一本好書，就像交了一個益友。」
           凱勒 (Helen Keller)：「一本書像一艘船，帶領我們從狹隘的地方，駛向生命的無限海洋。」
         </p>
-        <div className="mt-4 flex flex-wrap gap-3">
-          {READING_SUBCATEGORIES.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={cat.href}
-              className="rounded-full border px-4 py-1.5 text-sm font-semibold text-[#3d3630] transition-all hover:opacity-80"
-              style={{ backgroundColor: cat.bgColor, borderColor: cat.borderColor }}
-            >
-              {cat.label}
-            </Link>
-          ))}
-        </div>
       </div>
     </ReadingLayout>
   )
