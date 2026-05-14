@@ -8,7 +8,7 @@ import { MenuTreeDropdown } from "@/components/ui/menu-tree-dropdown"
 
 const navItems = [
   { label: "法律", href: "/law", bgColor: "rgba(222,230,255,.98)" },
-  { label: "閱讀", href: "#", bgColor: "rgba(255,243,196,.98)" },
+  { label: "閱讀", href: "/reading", bgColor: "rgba(255,243,196,.98)" },
   { label: "科技", href: "#", bgColor: "rgba(215,243,234,.98)" },
   { label: "日常", href: "/daily", bgColor: "rgba(255,226,210,.98)" },
 ]
