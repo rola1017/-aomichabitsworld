@@ -223,7 +223,7 @@ export function Navigation() {
                     key={item.label}
                     nodes={lawMenuTree as any}
                     openOnHover
-                    contentClassName="min-w-[16rem] max-h-[min(70vh,28rem)] overflow-y-auto"
+                    contentClassName="min-w-[16rem]"
                     trigger={
                       <Link
                         href="/law"
@@ -239,7 +239,7 @@ export function Navigation() {
                     key={item.label}
                     nodes={dailyMenuTree as any}
                     openOnHover
-                    contentClassName="min-w-[14rem] max-h-[min(70vh,24rem)] overflow-y-auto"
+                    contentClassName="min-w-[14rem]"
                     trigger={
                       <Link
                         href="/daily"
