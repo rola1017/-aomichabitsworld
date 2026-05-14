@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useCallback, useState } from "react"
 
 import { MenuTreeDropdown } from "@/components/ui/menu-tree-dropdown"
+import { READING_SUBCATEGORIES } from "@/config/reading-config"
 
 const navItems = [
   { label: "法律", href: "/law", bgColor: "rgba(222,230,255,.98)" },
@@ -168,10 +169,6 @@ const mobileLawLinks = [
 const NAV_PILL_CLASS =
   "inline-flex touch-manipulation cursor-pointer items-center rounded-full border border-[#101A3A]/15 px-4 py-2 text-base font-medium whitespace-nowrap text-[#101A3A] shadow-sm ring-1 ring-black/5 transition-opacity hover:opacity-80 sm:px-6 sm:py-2.5 sm:text-lg"
 
-const lawMenuWithOverview = [{ label: "法律總覽", href: "/law" }, ...lawMenuTree] as const
-
-const dailyMenuWithOverview = [{ label: "日常總覽", href: "/daily" }, ...dailyMenuTree] as const
-
 const LOGO_SRC =
   "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AtomicHabitsWorld-OV1EpY5UU1vffttWVWCcHGOdrWoPSF.png"
 
@@ -224,35 +221,49 @@ export function Navigation() {
                 item.label === "法律" ? (
                   <MenuTreeDropdown
                     key={item.label}
-                    nodes={lawMenuWithOverview as any}
+                    nodes={lawMenuTree as any}
                     openOnHover
                     contentClassName="min-w-[16rem] max-h-[min(70vh,28rem)] overflow-y-auto"
                     trigger={
-                      <button
-                        type="button"
+                      <Link
+                        href="/law"
                         style={{ backgroundColor: item.bgColor }}
                         className={NAV_PILL_CLASS}
-                        aria-haspopup="menu"
                       >
                         {item.label}
-                      </button>
+                      </Link>
                     }
                   />
                 ) : item.label === "日常" ? (
                   <MenuTreeDropdown
                     key={item.label}
-                    nodes={dailyMenuWithOverview as any}
+                    nodes={dailyMenuTree as any}
                     openOnHover
                     contentClassName="min-w-[14rem] max-h-[min(70vh,24rem)] overflow-y-auto"
                     trigger={
-                      <button
-                        type="button"
+                      <Link
+                        href="/daily"
                         style={{ backgroundColor: item.bgColor }}
                         className={NAV_PILL_CLASS}
-                        aria-haspopup="menu"
                       >
                         {item.label}
-                      </button>
+                      </Link>
+                    }
+                  />
+                ) : item.label === "閱讀" ? (
+                  <MenuTreeDropdown
+                    key={item.label}
+                    nodes={READING_SUBCATEGORIES.map((cat) => ({ label: cat.label, href: cat.href }))}
+                    openOnHover
+                    contentClassName="min-w-[14rem]"
+                    trigger={
+                      <Link
+                        href="/reading"
+                        style={{ backgroundColor: item.bgColor }}
+                        className={NAV_PILL_CLASS}
+                      >
+                        {item.label}
+                      </Link>
                     }
                   />
                 ) : (
