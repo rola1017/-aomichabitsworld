@@ -16,7 +16,7 @@ export function ReadingHero() {
     >
       <div className="relative z-10 flex flex-col items-center gap-4 px-4 text-center">
         <p className="text-base font-bold font-serif text-[#c4bcb0]">{q.attribution}</p>
-        <p className="text-2xl font-bold font-serif leading-normal text-[#e8e2d8] md:text-3xl">
+        <p className="text-2xl font-bold font-serif leading-normal text-[#c8c2b8] md:text-3xl">
           {q.chinesePrefix}
           <span
             className="font-bold text-[#f5f0e8]"
