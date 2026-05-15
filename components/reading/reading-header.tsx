@@ -53,9 +53,9 @@ export function ReadingHeader() {
                   const isActive = pathname.startsWith(cat.href)
                   const pillClass = "shrink-0 rounded-full border px-4 py-1.5 text-sm font-semibold font-serif transition-all hover:opacity-80 whitespace-nowrap cursor-pointer"
                   const pillStyle = {
-                    backgroundColor: isActive ? cat.borderColor : cat.bgColor,
+                    backgroundColor: isActive ? cat.bgColor : cat.borderColor,
                     borderColor: cat.borderColor,
-                    color: isActive ? "#fff" : "#3d3630",
+                    color: isActive ? "#3d3630" : "#1a1a1a",
                   }
 
                   if (cat.children && cat.children.length > 0) {
