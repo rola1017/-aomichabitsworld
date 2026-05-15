@@ -22,7 +22,7 @@ export type ReadingSubcategory = {
 export const READING_SUBCATEGORIES: ReadingSubcategory[] = [
   {
     slug: "learning", label: "學習的方法",
-    bgColor: "#e6fffe", borderColor: "#00CCCC",
+    bgColor: "#fff4ea", borderColor: "#FFBB77",
     href: "/reading/learning",
     children: [
       { label: "讀書技巧", href: "/reading/reading-skills" },
@@ -31,7 +31,7 @@ export const READING_SUBCATEGORIES: ReadingSubcategory[] = [
   },
   {
     slug: "psychology", label: "心理學",
-    bgColor: "#fff0f8", borderColor: "#FFAAD5",
+    bgColor: "#fff8ff", borderColor: "#FFD0FF",
     href: "/reading/psychology",
     children: [
       { label: "溝通", href: "/reading/communication" },
@@ -39,27 +39,27 @@ export const READING_SUBCATEGORIES: ReadingSubcategory[] = [
   },
   {
     slug: "reading-law", label: "法律",
-    bgColor: "#f0f0ff", borderColor: "#7373B9",
+    bgColor: "#f2f2ff", borderColor: "#9393FF",
     href: "/reading/reading-law",
   },
   {
     slug: "business", label: "商業",
-    bgColor: "#fff5f5", borderColor: "#EA0000",
+    bgColor: "#fff2f2", borderColor: "#FF5151",
     href: "/reading/business",
   },
   {
     slug: "finance", label: "理財",
-    bgColor: "#eff0ff", borderColor: "#0000E3",
+    bgColor: "#efefff", borderColor: "#6A6AFF",
     href: "/reading/finance",
   },
   {
     slug: "english", label: "英文",
-    bgColor: "#fff0f9", borderColor: "#FF359A",
+    bgColor: "#fff5ff", borderColor: "#FFA6FF",
     href: "/reading/english",
   },
   {
     slug: "medicine", label: "醫學",
-    bgColor: "#f0fff0", borderColor: "#28CC28",
+    bgColor: "#f4fffb", borderColor: "#ADFEDC",
     href: "/reading/medicine",
     children: [
       { label: "營養學", href: "/reading/nutrition" },
@@ -68,12 +68,12 @@ export const READING_SUBCATEGORIES: ReadingSubcategory[] = [
   },
   {
     slug: "science", label: "科學",
-    bgColor: "#e8fffe", borderColor: "#4DCCCC",
+    bgColor: "#eff6ff", borderColor: "#ACD6FF",
     href: "/reading/science",
   },
   {
     slug: "brain-games", label: "益智遊戲",
-    bgColor: "#fffde8", borderColor: "#CCAD00",
+    bgColor: "#fffce8", borderColor: "#FFDC35",
     href: "/reading/brain-games",
   },
 ]

@@ -51,12 +51,20 @@ export function ReadingHeader() {
               <div className="flex items-center gap-2 lg:gap-3 overflow-x-auto scrollbar-hide py-1">
                 {READING_SUBCATEGORIES.map((cat) => {
                   const isActive = pathname.startsWith(cat.href)
-                  const pillClass = "shrink-0 rounded-full border px-4 py-1.5 text-sm font-semibold font-serif transition-all hover:opacity-80 whitespace-nowrap cursor-pointer"
-                  const pillStyle = {
-                    backgroundColor: isActive ? cat.bgColor : cat.borderColor,
-                    borderColor: cat.borderColor,
-                    color: isActive ? "#3d3630" : "#1a1a1a",
-                  }
+                  const pillClass = "shrink-0 rounded-full border px-4 py-1.5 text-sm font-semibold font-serif transition-all hover:opacity-90 hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
+                  const pillStyle = isActive
+                    ? {
+                        backgroundColor: cat.bgColor,
+                        borderColor: cat.borderColor,
+                        color: "#3d3630",
+                        boxShadow: "none",
+                      }
+                    : {
+                        background: `linear-gradient(135deg, rgba(255,255,255,0.28) 0%, transparent 45%, rgba(0,0,0,0.12) 100%), ${cat.borderColor}`,
+                        borderColor: cat.borderColor,
+                        color: "#1a1a1a",
+                        boxShadow: "0 2px 6px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.35)",
+                      }
 
                   if (cat.children && cat.children.length > 0) {
                     return (
