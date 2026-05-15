@@ -21,13 +21,8 @@ export type ReadingSubcategory = {
 
 export const READING_SUBCATEGORIES: ReadingSubcategory[] = [
   {
-    slug: "business", label: "商業",
-    bgColor: "#fdf3ea", borderColor: "#e3a76a",
-    href: "/reading/business",
-  },
-  {
     slug: "learning", label: "學習的方法",
-    bgColor: "#ecf6f3", borderColor: "#5fb8a1",
+    bgColor: "#e6fffe", borderColor: "#00CCCC",
     href: "/reading/learning",
     children: [
       { label: "讀書技巧", href: "/reading/reading-skills" },
@@ -36,15 +31,35 @@ export const READING_SUBCATEGORIES: ReadingSubcategory[] = [
   },
   {
     slug: "psychology", label: "心理學",
-    bgColor: "#f3f1fb", borderColor: "#9a8ad9",
+    bgColor: "#fff0f8", borderColor: "#FFAAD5",
     href: "/reading/psychology",
     children: [
       { label: "溝通", href: "/reading/communication" },
     ],
   },
   {
+    slug: "reading-law", label: "法律",
+    bgColor: "#f0f0ff", borderColor: "#7373B9",
+    href: "/reading/reading-law",
+  },
+  {
+    slug: "business", label: "商業",
+    bgColor: "#fff5f5", borderColor: "#EA0000",
+    href: "/reading/business",
+  },
+  {
+    slug: "finance", label: "理財",
+    bgColor: "#eff0ff", borderColor: "#0000E3",
+    href: "/reading/finance",
+  },
+  {
+    slug: "english", label: "英文",
+    bgColor: "#fff0f9", borderColor: "#FF359A",
+    href: "/reading/english",
+  },
+  {
     slug: "medicine", label: "醫學",
-    bgColor: "#f0fff4", borderColor: "#68d391",
+    bgColor: "#f0fff0", borderColor: "#28CC28",
     href: "/reading/medicine",
     children: [
       { label: "營養學", href: "/reading/nutrition" },
@@ -52,29 +67,14 @@ export const READING_SUBCATEGORIES: ReadingSubcategory[] = [
     ],
   },
   {
-    slug: "finance", label: "理財",
-    bgColor: "#f0f9ff", borderColor: "#65a3e5",
-    href: "/reading/finance",
-  },
-  {
-    slug: "brain-games", label: "益智遊戲",
-    bgColor: "#f4fff3", borderColor: "#7ac46b",
-    href: "/reading/brain-games",
-  },
-  {
-    slug: "reading-law", label: "閱讀-法律",
-    bgColor: "#fef3f3", borderColor: "#e08080",
-    href: "/reading/reading-law",
-  },
-  {
     slug: "science", label: "科學",
-    bgColor: "#eff6ff", borderColor: "#6ba3d6",
+    bgColor: "#e8fffe", borderColor: "#4DCCCC",
     href: "/reading/science",
   },
   {
-    slug: "english", label: "英文",
-    bgColor: "#fffbf0", borderColor: "#d4a840",
-    href: "/reading/english",
+    slug: "brain-games", label: "益智遊戲",
+    bgColor: "#fffde8", borderColor: "#CCAD00",
+    href: "/reading/brain-games",
   },
 ]
 
