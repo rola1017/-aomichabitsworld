@@ -12,6 +12,14 @@ export function ReadingHeader() {
 
   const goToParent = () => {
     const segments = pathname.split("/").filter(Boolean)
+
+    // 特例：閱讀大分類文章路徑是 /reading/reading/[id]
+    // 按返回應該回到 /reading 主頁，而不是 /reading/reading 列表
+    if (segments.length >= 2 && segments[1] === "reading") {
+      router.push("/reading")
+      return
+    }
+
     const parentPath = segments.length <= 1 ? "/" : `/${segments.slice(0, -1).join("/")}`
     router.push(parentPath)
   }
