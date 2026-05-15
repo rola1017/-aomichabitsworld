@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
 import { ReadingLayout } from "@/components/reading/reading-layout"
 import { READING_SUBCATEGORIES } from "@/config/reading-config"
 import { getPostsByCategory } from "@/lib/supabase-posts"
@@ -29,14 +28,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ReadingCategoryPage({ params }: Props) {
   const { category } = await params
   const cat = READING_SUBCATEGORIES.find((c) => c.slug === category)
-  if (!cat) notFound()
 
-  const articles = await getPostsByCategory(cat.slug)
+  const articles = await getPostsByCategory(category)
 
   return (
     <ReadingLayout>
       <div className="rounded-2xl bg-[#fdfcf9] p-6 shadow-xl sm:p-8">
-        <h1 className="mb-6 text-2xl font-bold text-[#3d3630]">{cat.label}</h1>
+        <h1 className="mb-6 text-2xl font-bold text-[#3d3630]">{cat?.label ?? "閱讀"}</h1>
         {articles.length > 0 ? (
           <div className="flex flex-col gap-4">
             {articles.map((post) => {
