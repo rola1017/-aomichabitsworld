@@ -51,19 +51,19 @@ export function ReadingHeader() {
               <div className="flex items-center gap-2 lg:gap-3 overflow-x-auto scrollbar-hide py-1">
                 {READING_SUBCATEGORIES.map((cat) => {
                   const isActive = pathname.startsWith(cat.href)
-                  const pillClass = "shrink-0 rounded-full border px-4 py-1.5 text-sm font-semibold font-serif transition-all hover:opacity-90 hover:-translate-y-0.5 whitespace-nowrap cursor-pointer"
+                  const pillClass = "shrink-0 rounded-full border px-4 py-1.5 text-sm font-semibold font-serif whitespace-nowrap cursor-pointer transition-all duration-200 hover:brightness-110 active:shadow-inner"
                   const pillStyle = isActive
                     ? {
                         backgroundColor: cat.bgColor,
                         borderColor: cat.borderColor,
                         color: "#3d3630",
-                        boxShadow: "none",
+                        boxShadow: "inset 0 2px 3px rgba(0,0,0,0.15)",
                       }
                     : {
-                        background: `linear-gradient(135deg, rgba(255,255,255,0.28) 0%, transparent 45%, rgba(0,0,0,0.12) 100%), ${cat.borderColor}`,
-                        borderColor: cat.borderColor,
+                        background: `linear-gradient(180deg, rgba(232,228,220,0.75) 0%, rgba(232,228,220,0.60) 100%), ${cat.borderColor}`,
+                        borderColor: "rgba(0,0,0,0.30)",
                         color: "#1a1a1a",
-                        boxShadow: "0 2px 6px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.35)",
+                        boxShadow: "inset 0 1px 0 rgba(255,255,255,0.28), 0 2px 5px rgba(0,0,0,0.22)",
                       }
 
                   if (cat.children && cat.children.length > 0) {
